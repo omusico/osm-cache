@@ -1,0 +1,4 @@
+development.db.default {
+  user = ""
+  password = ""
+}

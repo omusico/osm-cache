@@ -5,6 +5,7 @@ import skinny.micro.LifeCycle
 
 class Bootstrap extends LifeCycle {
   override def init(context: ServletContext): Unit = {
+    skinny.DBSettings.initialize()
     OSM.mount(context)
   }
 }

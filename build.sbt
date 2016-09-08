@@ -11,12 +11,14 @@ servletSettings
 
 libraryDependencies ++= Seq(
   "org.skinny-framework" %% "skinny-orm" % "2.2.0",
+  "org.mariadb.jdbc" % "mariadb-java-client" % "1.5.2",
   "org.skinny-framework" %% "skinny-micro" % skinnyMicroVer,
   "org.skinny-framework" %% "skinny-micro-json4s" % skinnyMicroVer,
   "org.skinny-framework" %% "skinny-micro-server" % skinnyMicroVer,
   "org.skinny-framework" %% "skinny-http-client" % "2.2.0",
   "org.eclipse.jetty" % "jetty-webapp" % jettyVersion % "container",
-  "org.eclipse.jetty" % "jetty-plus"   % jettyVersion % "container"
+  "org.eclipse.jetty" % "jetty-plus"   % jettyVersion % "container",
+  "com.typesafe.akka" %% "akka-actor" % "2.4.10"
 )
 
-port in container.Configuration := 9000
+port in container.Configuration := 9001
