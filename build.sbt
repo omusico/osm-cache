@@ -18,7 +18,8 @@ libraryDependencies ++= Seq(
   "org.skinny-framework" %% "skinny-http-client" % "2.2.0",
   "org.eclipse.jetty" % "jetty-webapp" % jettyVersion % "container",
   "org.eclipse.jetty" % "jetty-plus"   % jettyVersion % "container",
-  "com.typesafe.akka" %% "akka-actor" % "2.4.10"
+  "com.typesafe.akka" %% "akka-actor" % "2.4.10",
+  "com.google.guava" % "guava" % "19.0"
 )
 
 port in container.Configuration := 9001

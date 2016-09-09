@@ -3,7 +3,7 @@ package com.ponkotuy.controllers
 import akka.actor.{ActorSystem, Props}
 import com.ponkotuy.actors.{Create, SaveImageActor, Update}
 import com.ponkotuy.http.{Tile, TileOSMOrg, TilePosition}
-import com.ponkotuy.models.TileImage
+import com.ponkotuy.models.{TileImage, ResourceFileLoader}
 import skinny.micro._
 
 import scala.concurrent.duration._
@@ -11,6 +11,11 @@ import scala.concurrent.duration._
 object OSM extends WebApp {
   val system = ActorSystem()
   val saveImage = system.actorOf(Props[SaveImageActor])
+  val xmlLoader = new ResourceFileLoader()
+
+  get("/") {
+    Ok(xmlLoader("/html/index.html"), contentType = Some("text/html"))
+  }
 
   get("/maps/:zoom/:x/:y.png") {
     parse(params).fold(NotFound()) { tile =>
