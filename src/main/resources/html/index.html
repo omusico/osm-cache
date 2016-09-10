@@ -24,7 +24,7 @@
     var map = L.map('map');
     map.setView([37.786941,138.4089693], 7);
     var tile = L.tileLayer(
-      '/maps/{z}/{x}/{y}.png',
+      'http://{s}.maps.ponkotuy.com/maps/{z}/{x}/{y}.png',
       {attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'}
     );
     map.addLayer(tile);
