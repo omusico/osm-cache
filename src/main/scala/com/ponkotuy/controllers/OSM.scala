@@ -41,7 +41,7 @@ object OSM extends WebApp {
     }
   }
 
-  def parse(params: Params): Option[Tile] = {
+  private[this] def parse(params: Params): Option[Tile] = {
     for {
       x <- params.getAs[Int]("x")
       y <- params.getAs[Int]("y")

@@ -10,8 +10,8 @@ val skinnyMicroVer = "1.1.0"
 servletSettings
 
 libraryDependencies ++= Seq(
-  "org.skinny-framework" %% "skinny-orm" % "2.2.0",
   "org.mariadb.jdbc" % "mariadb-java-client" % "1.5.2",
+  "org.skinny-framework" %% "skinny-orm" % "2.2.0",
   "org.skinny-framework" %% "skinny-micro" % skinnyMicroVer,
   "org.skinny-framework" %% "skinny-micro-json4s" % skinnyMicroVer,
   "org.skinny-framework" %% "skinny-micro-server" % skinnyMicroVer,
@@ -23,3 +23,5 @@ libraryDependencies ++= Seq(
 )
 
 port in container.Configuration := 9001
+
+lazy val profiler = project.in(file("profiler")).enablePlugins(JmhPlugin)
