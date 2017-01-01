@@ -6,4 +6,8 @@
     <listener>
         <listener-class>skinny.micro.SkinnyListener</listener-class>
     </listener>
+    <init-param>
+        <param-name>org.atmosphere.useStream</param-name>
+        <param-value>false</param-value>
+    </init-param>
 </web-app>
