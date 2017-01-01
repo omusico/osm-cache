@@ -6,12 +6,15 @@ import scalikejdbc.AutoSession
 
 class SaveImageActor extends Actor {
   implicit val session = AutoSession
+  val ImageMinSize = 150
   def receive = {
     case Update(tile) =>
-      TileImage.updateBy(tile.where)
-          .withAttributes('image -> tile.image, 'created -> System.currentTimeMillis())
+      if(ImageMinSize < tile.image.length)
+        TileImage.updateBy(tile.where)
+            .withAttributes('image -> tile.image, 'created -> System.currentTimeMillis())
     case Create(tile) =>
-      TileImage.create(tile)
+      if(ImageMinSize < tile.image.length)
+        TileImage.create(tile)
   }
 }
 

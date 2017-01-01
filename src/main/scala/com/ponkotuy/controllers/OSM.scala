@@ -9,9 +9,9 @@ import skinny.micro._
 import scala.concurrent.duration._
 
 object OSM extends WebApp {
-  val system = ActorSystem()
-  val saveImage = system.actorOf(Props[SaveImageActor])
-  val xmlLoader = new ResourceFileLoader()
+  private[this] val system = ActorSystem()
+  private[this] val saveImage = system.actorOf(Props[SaveImageActor])
+  private[this] val xmlLoader = new ResourceFileLoader()
 
   get("/") {
     Ok(xmlLoader("/html/index.html"), contentType = Some("text/html"))
