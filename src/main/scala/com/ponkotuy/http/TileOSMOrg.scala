@@ -8,7 +8,7 @@ import scala.util.Random
 
 object TileOSMOrg {
   def tileURL(server: String, tile: Tile) =
-    s"http://${server}.tile.osm.org/${tile.zoom}/${tile.x}/${tile.y}.png"
+    s"http://tile.openstreetmap.jp/${tile.zoom}/${tile.x}/${tile.y}.png"
 
   val Servers = Vector("a", "b", "c")
 

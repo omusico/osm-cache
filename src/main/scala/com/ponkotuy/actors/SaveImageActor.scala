@@ -6,7 +6,7 @@ import scalikejdbc.AutoSession
 
 class SaveImageActor extends Actor {
   implicit val session = AutoSession
-  val ImageMinSize = 150
+  val ImageMinSize = 150 // broken tile if smaller than this
   def receive = {
     case Update(tile) =>
       if(ImageMinSize < tile.image.length)
