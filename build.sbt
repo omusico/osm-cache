@@ -2,7 +2,7 @@ import skinny.servlet._, ServletPlugin._, ServletKeys._
 
 name := "OSMCache"
 
-scalaVersion := "2.12.1"
+scalaVersion := "2.12.3"
 
 val jettyVersion = "9.2.15.v20160210"
 val skinnyMicroVer = "1.2.2"
