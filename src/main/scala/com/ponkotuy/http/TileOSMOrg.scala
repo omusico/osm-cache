@@ -8,12 +8,12 @@ import scala.util.Random
 
 object TileOSMOrg {
   def tileURL(server: String, tile: Tile) =
-    s"http://tile.openstreetmap.jp/${tile.zoom}/${tile.x}/${tile.y}.png"
+    s"https://${server}.tile.openstreetmap.jp/${tile.zoom}/${tile.x}/${tile.y}.png"
 
-  val Servers = Vector("a", "b", "c")
+  val Servers = Vector("j")
 
   def get(tile: Tile): TileImage = {
-    val server = Servers(Random.nextInt(3))
+    val server = Servers(Random.nextInt(Servers.length))
     val url = tileURL(server, tile)
     val res = HTTP.get(url)
     tile.withImage(res.body)
@@ -26,8 +26,9 @@ trait Tile {
   def zoom: Int
   def withImage(image: Array[Byte]) = TileImage(x, y, zoom, image)
   lazy val where: SQLSyntax = {
-    val t = TileImage.defaultAlias
-    sqls.eq(t.x, x).and.eq(t.y, y).and.eq(t.zoom, zoom)
+    import com.ponkotuy.models.Aliases.t
+    val r = sqls.eq(t.x, x).and.eq(t.y, y).and.eq(t.zoom, zoom)
+    r
   }
 }
 

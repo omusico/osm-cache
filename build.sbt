@@ -2,15 +2,15 @@ import skinny.servlet._, ServletPlugin._, ServletKeys._
 
 name := "OSMCache"
 
-scalaVersion := "2.12.3"
+scalaVersion := "2.12.8"
 
 val jettyVersion = "9.2.15.v20160210"
-val skinnyMicroVer = "1.2.2"
+val skinnyMicroVer = "2.0.0"
 
 servletSettings
 
 libraryDependencies ++= Seq(
-  "org.mariadb.jdbc" % "mariadb-java-client" % "1.5.2",
+  "org.mariadb.jdbc" % "mariadb-java-client" % "2.4.1",
   "org.skinny-framework" %% "skinny-orm" % "2.3.1",
   "org.skinny-framework" %% "skinny-micro" % skinnyMicroVer,
   "org.skinny-framework" %% "skinny-micro-json4s" % skinnyMicroVer,
@@ -23,5 +23,3 @@ libraryDependencies ++= Seq(
 )
 
 port in container.Configuration := 9001
-
-lazy val profiler = project.in(file("profiler")).enablePlugins(JmhPlugin)
