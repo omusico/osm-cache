@@ -4,7 +4,7 @@ name := "OSMCache"
 
 scalaVersion := "2.12.8"
 
-val jettyVersion = "9.2.15.v20160210"
+val jettyVersion = "9.4.18.v20190429"
 val skinnyMicroVer = "2.0.0"
 
 servletSettings

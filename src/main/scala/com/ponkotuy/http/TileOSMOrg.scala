@@ -16,8 +16,11 @@ object TileOSMOrg {
     val server = Servers(Random.nextInt(Servers.length))
     val url = tileURL(server, tile)
     val res = HTTP.get(url)
+    if(res.status != 200) throw new GetTileError(url, res.status)
     tile.withImage(res.body)
   }
+
+  class GetTileError(url: String, status: Int) extends RuntimeException(s"Error when GET ${url}. Status is ${status}")
 }
 
 trait Tile {
